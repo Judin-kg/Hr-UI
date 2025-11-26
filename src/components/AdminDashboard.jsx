@@ -5,7 +5,7 @@ export default function AdminDashboard() {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    axios.get("https://https://hr-server-41im.onrender.com/api/admin/all-attendance")
+    axios.get("https://hr-server-41im.onrender.com/api/admin/all-attendance")
       .then(res => setRecords(res.data))
   }, []);
 

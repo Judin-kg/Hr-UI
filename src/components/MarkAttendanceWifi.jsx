@@ -6,7 +6,7 @@ export default function MarkAttendanceWifi() {
 
   const mark = async () => {
     try {
-      const res = await axios.post("https://https://hr-server-41im.onrender.com/api/attendance/mark-wifi", {
+      const res = await axios.post("https://hr-server-41im.onrender.com/api/attendance/mark-wifi", {
         employeeId,
       });
 

@@ -7,7 +7,7 @@ export default function EmployeeLogin() {
 
   const login = async () => {
     try {
-      const res = await axios.post("https://https://hr-server-41im.onrender.com/api/employee/login", {
+      const res = await axios.post("https://hr-server-41im.onrender.com/api/employee/login", {
         empId,
         password,
       });
