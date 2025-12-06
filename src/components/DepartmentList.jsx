@@ -8,7 +8,7 @@ export default function DepartmentList() {
 
   const loadDepartments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/department/all");
+      const res = await axios.get("https://hr-server-41im.onrender.com/api/department/all");
       setDepartments(res.data);
     } catch (err) {
       console.log(err);

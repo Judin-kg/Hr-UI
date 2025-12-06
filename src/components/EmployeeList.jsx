@@ -8,7 +8,7 @@ export default function EmployeeList() {
 
   const loadEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/employee/all");
+      const res = await axios.get("https://hr-server-41im.onrender.com/api/employee/all");
       setEmployees(res.data);
     } catch (err) {
       alert("Failed to load employees");
@@ -19,7 +19,7 @@ export default function EmployeeList() {
     if (!window.confirm("Are you sure you want to delete?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/employee/${id}`);
+      await axios.delete(`https://hr-server-41im.onrender.com/api/employee/${id}`);
       loadEmployees();
     } catch (err) {
       alert("Delete failed");

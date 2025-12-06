@@ -323,7 +323,7 @@ export default function AddEmployeeModal({ onClose, onSave }) {
   // Load departments from backend
   const loadDepartments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/department/all");
+      const res = await axios.get("https://hr-server-41im.onrender.com/api/department/all");
       setDepartments(res.data);
     } catch (err) {
       alert("Failed to load departments");
@@ -348,7 +348,7 @@ export default function AddEmployeeModal({ onClose, onSave }) {
 
   const saveEmployee = async () => {
     try {
-      await axios.post("http://localhost:5000/api/employee/create", form);
+      await axios.post("https://hr-server-41im.onrender.com/api/employee/create", form);
       alert("Employee Added Successfully");
       onSave();
     } catch (err) {

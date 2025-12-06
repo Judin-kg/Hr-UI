@@ -5,7 +5,7 @@ export default function AdminPanel() {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/attendance/all")
+    axios.get("https://hr-server-41im.onrender.com/api/attendance/all")
       .then(res => setRecords(res.data))
   }, []);
 
