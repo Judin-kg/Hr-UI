@@ -1,0 +1,63 @@
+/* Container Box */
+.tab {
+  width: 90%;
+  max-width: 900px;
+  background: #ffffff;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.tab h2 {
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* Table Header */
+table thead tr {
+  background: #007bff;
+  color: white;
+}
+
+table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* Table Rows */
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternate Row Colors */
+table tbody tr:nth-child(even) {
+  background: #f7f9fc;
+}
+
+/* Hover effect */
+table tbody tr:hover {
+  background: #e7f1ff;
+  transition: 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  table th, table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

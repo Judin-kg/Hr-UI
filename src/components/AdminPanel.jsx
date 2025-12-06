@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import '../styles/AdminPanel.css';
 export default function AdminPanel() {
   const [records, setRecords] = useState([]);
 
@@ -10,7 +10,7 @@ export default function AdminPanel() {
   }, []);
 
   return (
-    <div className="box">
+    <div className="tab">
       <h2>Attendance Records</h2>
 
       <table border="1" width="100%">
