@@ -1,4 +1,28 @@
 /* Container Box */
+
+.export-btn {
+  padding: 8px 14px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.export-btn.pdf {
+  background-color: #d9534f;
+  color: white;
+}
+
+.export-btn.excel {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.export-btn:hover {
+  opacity: 0.8;
+}
+
 .tab {
   width: 90%;
   max-width: 900px;

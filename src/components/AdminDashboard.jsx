@@ -46,6 +46,7 @@ import AdminPanel from "./AdminPanel";
 import "./AdminDashboard.css";
 import EmployeeList from "./EmployeeList";
 import DepartmentList from "./DepartmentList";
+import AttendenceList from "./AttendenceList";
 
 
 
@@ -58,6 +59,7 @@ const NAV_ITEMS = [
   { key: "dashboard", label: "Dashboard" },
   { key: "employee", label: "Employee" },
   { key: "department", label: "Department"},
+  { key: "attendence", label: "AttendenceList"},
   { key: "report", label: "Report" },
   
 ];
@@ -166,6 +168,7 @@ function AdminDashboard() {
 
             {active === "employee" && <EmployeeList/>}
             {active === "department" && <DepartmentList />}
+            {active === "attendence" && <AttendenceList />}
           </div>
         </main>
       </div>
