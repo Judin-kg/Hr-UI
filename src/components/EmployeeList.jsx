@@ -15,12 +15,12 @@ export default function EmployeeList() {
     }
   };
 
-  const deleteEmployee = async (id) => {
-    if (!window.confirm("Are you sure you want to delete?")) return;
+  const deleteEmployee = async (empId) => {
+    if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
-      await axios.delete(`https://hr-server-41im.onrender.com/api/employee/${id}`);
-      loadEmployees();
+      await axios.delete(`https://hr-server-41im.onrender.com/api/employee/delete/${empId}`);
+      loadEmployees(); // refresh list
     } catch (err) {
       alert("Delete failed");
     }
@@ -70,13 +70,9 @@ export default function EmployeeList() {
               <td>
                 <button
                   onClick={() => deleteEmployee(emp._id)}
-                  style={{ marginRight: 10 }}
+                  style={{ background: "red", color: "white", padding: "6px 12px", cursor: "pointer" }}
                 >
                   Delete
-                </button>
-
-                <button onClick={() => alert("Edit coming soon...")}>
-                  Edit
                 </button>
               </td>
             </tr>

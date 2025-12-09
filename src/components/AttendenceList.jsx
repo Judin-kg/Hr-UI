@@ -8,7 +8,7 @@ export default function AttendenceList() {
 
   const loadRecords = async () => {
     try {
-      const res = await axios.get("https://hr-server-41im.onrender.com/api/attendance/all");
+      const res = await axios.get("https://hr-server-41im.onrender.com/api/attendance/date");
       setRecords(res.data);
     } catch (err) {
       alert("Failed to load attendance");
@@ -39,7 +39,7 @@ export default function AttendenceList() {
           {records.map((rec, i) => (
             <tr key={i} className={rec.status === "Absent" ? "absent" : "present"}>
                 <td>{i + 1}</td>
-                <td>{rec.name}</td>
+                <td>{rec.employeeName}</td>
               <td>{rec.employeeId}</td>
               <td>{rec.date}</td>
               <td>{rec.time}</td>

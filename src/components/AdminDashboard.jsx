@@ -47,6 +47,8 @@ import "./AdminDashboard.css";
 import EmployeeList from "./EmployeeList";
 import DepartmentList from "./DepartmentList";
 import AttendenceList from "./AttendenceList";
+// import EmployeeCalendar from "./EmployeeCalendar";
+
 
 
 
@@ -60,6 +62,7 @@ const NAV_ITEMS = [
   { key: "employee", label: "Employee" },
   { key: "department", label: "Department"},
   { key: "attendence", label: "AttendenceList"},
+  // { key: "employeecard", label: "EmployeeCard" },
   { key: "report", label: "Report" },
   
 ];
@@ -93,7 +96,7 @@ function AdminDashboard() {
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <span className="navbar-brand mb-0 h1">Staff</span>
+            <span className="navbar-brand mb-0 h1">Admin</span>
           </div>
           <div className="d-none d-sm-block small text-muted">
             {NAV_ITEMS.find((n) => n.key === active)?.label}
@@ -154,7 +157,7 @@ function AdminDashboard() {
                     <div className="card-body">
                       <div className="card-title">Overview</div>
                       <p className="mb-0">
-                        Welcome to your dashboard. Pick a section from the left to get started.
+                        Welcome to HR dashboard. Pick a section from the left to get started.
                       </p>
                     </div>
                   </div>
@@ -169,6 +172,8 @@ function AdminDashboard() {
             {active === "employee" && <EmployeeList/>}
             {active === "department" && <DepartmentList />}
             {active === "attendence" && <AttendenceList />}
+            {/* {active === "employeecard" && <EmployeeCalendar />} */}
+            
           </div>
         </main>
       </div>
