@@ -74,21 +74,31 @@ export default function Login() {
     setLoading(true); // start loading
 
     try {
+      // const res = await axios.post(
+      //   "https://hr-server-41im.onrender.com/api/employee/login",
+      //   { empId, password }
+      // );
       const res = await axios.post(
-        "https://hr-server-41im.onrender.com/api/employee/login",
-        { empId, password }
-      );
+  "https://hr-server-41im.onrender.com/api/employee/login",
+  { empId, password }
+);
 
-      alert(res.data.message);
+alert(res.data.message);
+console.log(res,"ressss");
 
-      const role = res.data.role;
+// ⭐ SAVE EMPLOYEE DETAILS
+localStorage.setItem("employeeId", empId);
+localStorage.setItem("employeeName", res.data.user.name); // <-- add this
 
-      if (role === "admin") {
-        window.location.href = "/admin";
-      } else {
-        window.location.href = "/mark";
-      }
-    } catch (err) {
+const role = res.data.role;
+
+if (role === "admin") {
+  window.location.href = "/admin";
+} else {
+  window.location.href = "/mark";
+}
+
+  } catch (err) {
       alert("Invalid Login");
     } finally {
       setLoading(false); // stop loading

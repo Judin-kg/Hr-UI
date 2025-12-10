@@ -18,7 +18,7 @@ export default function AddDepartmentModal({ onClose, onSave }) {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/department/add", form);
+      await axios.post("https://hr-server-41im.onrender.com/api/department/add", form);
       alert("Department Added Successfully");
       onSave();
     } catch (err) {

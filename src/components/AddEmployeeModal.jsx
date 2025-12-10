@@ -304,11 +304,11 @@ export default function AddEmployeeModal({ onClose, onSave }) {
 
   // 🔥 Department prefix list (you can edit)
   const prefixMap = {
-    "sale": "SAL",
+    "sales": "SAL",
     "HR": "HR",
     "Accounts": "ACC",
     "Social Media": "IT",
-    "Support": "SUP",
+    "collection exicutive": "CE",
   };
 
   // Auto-generate ID
