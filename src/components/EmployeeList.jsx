@@ -55,6 +55,7 @@ export default function EmployeeList() {
             <th>Name</th>
             <th>Employee ID</th>
             <th>Password</th>
+            <th>department</th>
             <th>Role</th>
             <th>Actions</th>
           </tr>
@@ -66,6 +67,7 @@ export default function EmployeeList() {
               <td>{emp.name}</td>
               <td>{emp.empId}</td>
               <td>{emp.password}</td>
+              <td>{emp.department}</td>
               <td>{emp.role}</td>
               <td>
                 <button

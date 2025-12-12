@@ -304,17 +304,24 @@ export default function AddEmployeeModal({ onClose, onSave }) {
 
   // 🔥 Department prefix list (you can edit)
   const prefixMap = {
-    "sales": "SAL",
-    "HR": "HR",
-    "Accounts": "ACC",
+    "Sales&Marketing": "SM",
+    "Human Resource":"HR",
     "Social Media": "IT",
-    "collection exicutive": "CE",
+    "Collection": "COL",
+    "Workshop": "WS",
+    "Showroom Executives": "SRE",
+    "Accounts & Back office": "ABO",
+   "Customer Relationship (Tellecaller)" : "CR",  
   };
+
+console.log(prefixMap,"deppppppppp");
+
 
   // Auto-generate ID
   const generateEmployeeId = (deptName) => {
-    const prefix = prefixMap[deptName] || "EMP"; // default prefix
-
+    const prefix = prefixMap[deptName]; // default prefix
+console.log(deptName,"departmenttttttttttt");
+console.log(prefix,"prefixxxxxxxxxxx");
     const randomNum = Math.floor(100 + Math.random() * 900); // 100–999
 
     return `${prefix}-${randomNum}`;
