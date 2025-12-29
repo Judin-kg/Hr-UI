@@ -98,20 +98,26 @@
 
 
 
+
+
+
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddEmployeeModal from "./AddEmployeeModal";
+import EmployeeUpdateModal from "./EmployeeUpdateModal";
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [department, setDepartment] = useState("");
-
+  const [editEmployee, setEditEmployee] = useState(null);
   const loadEmployees = async () => {
     try {
       const res = await axios.get(
-        "https://hr-server-41im.onrender.com/api/employee/all"
+        "https://hr-server-six.vercel.app/api/employee/all"
       );
       setEmployees(res.data);
       setFilteredEmployees(res.data);
@@ -140,7 +146,7 @@ export default function EmployeeList() {
 
     try {
       await axios.delete(
-        `https://hr-server-41im.onrender.com/api/employee/delete/${empId}`
+        `https://hr-server-six.vercel.app/api/employee/delete/${empId}`
       );
       loadEmployees();
     } catch (err) {
@@ -191,11 +197,13 @@ export default function EmployeeList() {
         <thead>
           <tr>
             <th>No</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Employee ID</th>
             <th>Password</th>
             <th>Department</th>
             <th>Role</th>
+            <th>Salary</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -204,11 +212,29 @@ export default function EmployeeList() {
           {filteredEmployees.map((emp) => (
             <tr key={emp._id}>
               <td>{filteredEmployees.indexOf(emp) + 1}</td>
+                 {/* 🔥 IMAGE */}
+              <td style={{ textAlign: "center" }}>
+                {emp.image ? (
+                  <img
+                    src={emp.image}
+                    alt={emp.name}
+                    style={{
+                      width: 50,
+                      height: 50,
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
+                  />
+                ) : (
+                  "-"
+                )}
+              </td>
               <td>{emp.name}</td>
               <td>{emp.empId}</td>
               <td>{emp.password}</td>
               <td>{emp.department}</td>
               <td>{emp.role}</td>
+              <td>{emp.salary}</td>
               <td>
                 <button
                   onClick={() => deleteEmployee(emp._id)}
@@ -221,6 +247,16 @@ export default function EmployeeList() {
                 >
                   Delete
                 </button>
+                <button  
+
+                style={{
+                    background: "green",
+                    color: "white",
+                    padding: "6px 12px",
+                    cursor: "pointer",
+                    width: "75px",
+                  }}
+                onClick={() => setEditEmployee(emp)}>Edit</button>
               </td>
             </tr>
           ))}
@@ -245,6 +281,139 @@ export default function EmployeeList() {
           }}
         />
       )}
+
+       {editEmployee && (
+        <EmployeeUpdateModal
+          employee={editEmployee}
+          onClose={() => setEditEmployee(null)}
+          onUpdated={() => {
+            setEditEmployee(null);
+            loadEmployees();
+          }}
+        />
+      )}
     </div>
   );
 }
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import AddEmployeeModal from "./AddEmployeeModal";
+// import EmployeeUpdateModal from "./EmployeeUpdateModal";
+
+// export default function EmployeeList() {
+//   const [employees, setEmployees] = useState([]);
+//   const [filteredEmployees, setFilteredEmployees] = useState([]);
+//   const [showModal, setShowModal] = useState(false);
+//   const [editEmployee, setEditEmployee] = useState(null);
+//   const [department, setDepartment] = useState("");
+
+//   const loadEmployees = async () => {
+//     const res = await axios.get("http://localhost:5000/api/employee/all");
+//     setEmployees(res.data);
+//     setFilteredEmployees(res.data);
+//   };
+
+//   useEffect(() => {
+//     loadEmployees();
+//   }, []);
+
+//   useEffect(() => {
+//     setFilteredEmployees(
+//       department
+//         ? employees.filter((e) => e.department === department)
+//         : employees
+//     );
+//   }, [department, employees]);
+
+//   const deleteEmployee = async (id) => {
+//     if (!window.confirm("Delete employee?")) return;
+//     await axios.delete(
+//       `https://hr-server-41im.onrender.com/api/employee/delete/${id}`
+//     );
+//     loadEmployees();
+//   };
+
+//   const departments = [...new Set(employees.map((e) => e.department))];
+
+//   return (
+//     <div style={{ width: "80%", margin: "auto", marginTop: 30 }}>
+//       <h2>Employee List</h2>
+
+//       <div style={{ display: "flex", gap: 15, marginBottom: 15 }}>
+//         <button onClick={() => setShowModal(true)}>Add Employee</button>
+
+//         <select value={department} onChange={(e) => setDepartment(e.target.value)}>
+//           <option value="">All Departments</option>
+//           {departments.map((d, i) => (
+//             <option key={i}>{d}</option>
+//           ))}
+//         </select>
+//       </div>
+
+//       <table border="1" width="100%" cellPadding="10">
+//         <thead>
+//           <tr>
+//             <th>No</th>
+//             <th>Photo</th>
+//             <th>Name</th>
+//             <th>Emp ID</th>
+//             <th>Department</th>
+//             <th>Role</th>
+//             <th>Salary</th>
+//             <th>Actions</th>
+//           </tr>
+//         </thead>
+
+//         <tbody>
+//           {filteredEmployees.map((emp, i) => (
+//             <tr key={emp._id}>
+//               <td>{i + 1}</td>
+//               <td>
+//                 {emp.image ? (
+//                   <img
+//                     src={emp.image}
+//                     alt=""
+//                     style={{ width: 40, height: 40, borderRadius: "50%" }}
+//                   />
+//                 ) : "-"}
+//               </td>
+//               <td>{emp.name}</td>
+//               <td>{emp.empId}</td>
+//               <td>{emp.department}</td>
+//               <td>{emp.role}</td>
+//               <td>{emp.salary}</td>
+//               <td>
+//                 <button onClick={() => setEditEmployee(emp)}>Edit</button>
+//                 <button onClick={() => deleteEmployee(emp._id)}>Delete</button>
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+
+//       {showModal && (
+//         <AddEmployeeModal
+//           onClose={() => setShowModal(false)}
+//           onSave={() => {
+//             setShowModal(false);
+//             loadEmployees();
+//           }}
+//         />
+//       )}
+
+//       {editEmployee && (
+//         <EmployeeUpdateModal
+//           employee={editEmployee}
+//           onClose={() => setEditEmployee(null)}
+//           onUpdated={() => {
+//             setEditEmployee(null);
+//             loadEmployees();
+//           }}
+//         />
+//       )}
+//     </div>
+//   );
+// }

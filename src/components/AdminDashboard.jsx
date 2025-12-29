@@ -39,6 +39,8 @@
 
 
 
+
+
 import React, {useState } from "react";
 import AdminPanel from "./AdminPanel";
 // import "../admincomponents/AdminDashboard.css"; // Assuming you have a CSS file for styles
@@ -47,6 +49,9 @@ import "./AdminDashboard.css";
 import EmployeeList from "./EmployeeList";
 import DepartmentList from "./DepartmentList";
 import AttendenceList from "./AttendenceList";
+import TeamHeadPage from "./TeamHeadPage";
+import EmployerList from "./EmployerList";
+
 // import EmployeeCalendar from "./EmployeeCalendar";
 
 
@@ -62,10 +67,19 @@ const NAV_ITEMS = [
   { key: "employee", label: "Employee" },
   { key: "department", label: "Department"},
   { key: "attendence", label: "AttendenceList"},
+  
   // { key: "employeecard", label: "EmployeeCard" },
   { key: "report", label: "Report" },
   
 ];
+
+
+const TEAM_HEAD = [
+  { key: "teamhead", label: "Team Head" },
+  {key: "employeelist", label: "Employee" },
+]
+
+
 
 function AdminDashboard() {
   const [active, setActive] = useState("dashboard");
@@ -112,9 +126,26 @@ function AdminDashboard() {
           aria-label="Sidebar"
         >
           <div className="p-3 d-flex flex-column h-100">
-            <div className="fs-5 fw-semibold mb-3 text-secondary">Menu</div>
+            <div className="fs-5 fw-semibold mb-3 text-secondary">Attendence</div>
             <ul className="nav nav-pills flex-column gap-1">
               {NAV_ITEMS.map((item) => (
+                <li className="nav-item" key={item.key}>
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(item.key)}
+                    className={`nav-link w-100 text-start ${
+                      active === item.key ? "active" : ""
+                    }`}
+                    aria-current={active === item.key ? "page" : undefined}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+             <div className="fs-5 fw-semibold mb-3 text-secondary">Team & TeamHead</div>
+            <ul className="nav nav-pills flex-column gap-1">
+              {TEAM_HEAD.map((item) => (
                 <li className="nav-item" key={item.key}>
                   <button
                     type="button"
@@ -172,6 +203,9 @@ function AdminDashboard() {
             {active === "employee" && <EmployeeList/>}
             {active === "department" && <DepartmentList />}
             {active === "attendence" && <AttendenceList />}
+            {active === "employeelist" && <EmployerList />}
+            {active === "teamhead" && <TeamHeadPage />}
+            
             {/* {active === "employeecard" && <EmployeeCalendar />} */}
             
           </div>

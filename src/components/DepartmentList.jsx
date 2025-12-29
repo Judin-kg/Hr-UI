@@ -87,7 +87,7 @@ export default function DepartmentList() {
   const loadDepartments = async () => {
     try {
       const res = await axios.get(
-        "https://hr-server-41im.onrender.com/api/department/all"
+        "https://hr-server-six.vercel.app/api/department/all"
       );
       setDepartments(res.data);
     } catch (err) {
@@ -105,7 +105,7 @@ export default function DepartmentList() {
 
     try {
       await axios.delete(
-        `https://hr-server-41im.onrender.com/api/department/delete/${id}`
+        `https://hr-server-six.vercel.app/api/department/delete/${id}`
       );
       alert("Department Deleted");
       loadDepartments();

@@ -162,7 +162,7 @@ export default function AttendenceList() {
 
   const loadRecords = async () => {
     try {
-      const res = await axios.get("https://hr-server-41im.onrender.com/api/attendance/date");
+      const res = await axios.get("https://hr-server-six.vercel.app/api/attendance/date");
       setRecords(res.data);
       setFiltered(res.data);
     } catch (err) {

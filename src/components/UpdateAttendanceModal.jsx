@@ -23,7 +23,7 @@ export default function UpdateAttendanceModal({ isOpen, onClose, selectedRecord 
 
   const updateNow = async () => {
     try {
-      const res = await axios.put("https://hr-server-41im.onrender.com/api/attendance/update", form);
+      const res = await axios.put("https://hr-server-six.vercel.app/api/attendance/update", form);
       alert(res.data.message);
       onClose();
     } catch (err) {

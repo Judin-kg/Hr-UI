@@ -107,7 +107,7 @@ export default function EmployeeLogin() {
 
     try {
       const res = await axios.post(
-        "https://hr-server-41im.onrender.com/api/employee/login",
+        "https://hr-server-six.vercel.app/api/employee/login",
         { empId, password }
       );
 
@@ -117,6 +117,10 @@ export default function EmployeeLogin() {
       localStorage.setItem("employeeId", empId);
       localStorage.setItem("employeeName", res.data.user.name);
       localStorage.setItem("employeeRole", res.data.role);
+      localStorage.setItem("employeeImage", res.data.user.image);
+      localStorage.setItem("employeeSalary", res.data.user.salary);
+      localStorage.setItem("employeeDepartment", res.data.user.department);
+      
 
       // ROLE BASED REDIRECT
       if (res.data.role === "admin") {

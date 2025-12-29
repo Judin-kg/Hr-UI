@@ -167,7 +167,7 @@ export default function AdminPanel() {
   const loadRecords = async () => {
     try {
       const res = await axios.get(
-        "https://hr-server-41im.onrender.com/api/attendance/all"
+        "https://hr-server-six.vercel.app/api/attendance/all"
       );
 
       const data = res.data;

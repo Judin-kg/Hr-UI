@@ -13,7 +13,7 @@ export default function UpdateDepartmentModal({ dept, onClose, onSave }) {
 
     try {
       await axios.put(
-        `https://hr-server-41im.onrender.com/api/department/update/${dept._id}`,
+        `https://hr-server-six.vercel.app/api/department/update/${dept._id}`,
         {
           name,
           hod,

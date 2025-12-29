@@ -1,1 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); * { margin: 0; padding: 0; font-family: "Poppins", sans-serif; } .att-container { width: 100%; min-height: 100vh; background: #f7f9ff; display: flex; flex-direction: column; align-items: center; padding-top: 40px; position: relative; } /* TOP TIME */ .time-box { text-align: center; margin-top: 10px; } .time-box h1 { font-size: 48px; font-weight: 600; color: #333; } .time-box p { font-size: 16px; color: #666; } /* BUTTON */ .center-btn { margin-top: 50px; } .shift-btn { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #5a7fff, #7ac2ff); border: none; color: white; font-size: 18px; cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 12px 25px rgba(0, 110, 255, 0.25); transition: 0.25s; } .shift-btn:hover { transform: scale(1.04); } .shift-btn.marked { background: #30c665; /* Green success */ box-shadow: 0 12px 25px rgba(0, 180, 90, 0.35); } .shift-btn:disabled { cursor: not-allowed; transform: none; } .finger-icon { font-size: 45px; margin-bottom: 10px; } /* Location */ .location-text { margin-top: 30px; color: #777; font-size: 14px; } /* Bottom Navigation */ .bottom-nav { width: 100%; position: absolute; bottom: 0; display: flex; justify-content: space-around; padding: 15px 0; background: white; border-top: 1px solid #e0e0e0; } .nav-item { text-align: center; color: #666; font-size: 12px; } .nav-item span { display: block; margin-top: 5px; }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CONTAINER */
+.att-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f7f9ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  position: relative;
+}
+
+/* EMPLOYEE CARD */
+.employee-card {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.employee-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4caf50;
+  margin-bottom: 8px;
+}
+
+.employee-card h3 {
+  font-size: 18px;
+}
+
+.emp-meta {
+  font-size: 13px;
+  color: #555;
+}
+
+/* TIME */
+.time-box {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.time-box h1 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #333;
+}
+
+.time-box p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* BUTTON */
+.center-btn {
+  margin-top: 40px;
+}
+
+.shift-btn {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5a7fff, #7ac2ff);
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 25px rgba(0, 110, 255, 0.25);
+  transition: 0.25s;
+}
+
+.shift-btn:hover {
+  transform: scale(1.04);
+}
+
+.shift-btn.marked {
+  background: #30c665;
+  box-shadow: 0 12px 25px rgba(0, 180, 90, 0.35);
+}
+
+.shift-btn:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.finger-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+/* LOCATION */
+.location-text {
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.nav-item {
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+}
+
+.nav-item span {
+  display: block;
+  margin-top: 5px;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+  .employee-avatar {
+    width: 75px;
+    height: 75px;
+  }
+
+  .time-box h1 {
+    font-size: 36px;
+  }
+
+  .shift-btn {
+    width: 140px;
+    height: 140px;
+    font-size: 15px;
+  }
+
+  .finger-icon {
+    font-size: 32px;
+  }
+}
+
+/* 📲 TABLET */
+@media (min-width: 481px) and (max-width: 768px) {
+  .shift-btn {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* 💻 LARGE */
+@media (min-width: 1200px) {
+  .att-container {
+    max-width: 420px;
+    margin: auto;
+  }
+}
