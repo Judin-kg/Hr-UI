@@ -168,3 +168,43 @@
     margin: auto;
   }
 }
+
+/* 🌙 DARK MODE */
+.att-container.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.att-container.dark .time-box h1,
+.att-container.dark h3 {
+  color: #f9fafb;
+}
+
+.att-container.dark .time-box p,
+.att-container.dark .emp-meta,
+.att-container.dark .location-text {
+  color: #cbd5f5;
+}
+
+.att-container.dark .employee-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.att-container.dark .shift-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.att-container.dark .shift-btn.marked {
+  background: #16a34a;
+}
+
+.att-container.dark .bottom-nav {
+  background: #020617;
+  border-top: 1px solid #1e293b;
+}
+
+.att-container.dark .nav-item {
+  color: #cbd5f5;
+}
