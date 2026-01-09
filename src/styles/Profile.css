@@ -67,3 +67,127 @@
 .status.absent {
   color: red;
 }
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   CALENDAR
+========================= */
+.calendar-section {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-page.dark .calendar-section {
+  background: #1e293b;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.day-cell,
+.empty {
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.day-cell {
+  background: #e5e7eb;
+}
+
+.profile-page.dark .day-cell {
+  background: #334155;
+}
+
+/* STATUS COLORS */
+.day-cell.present {
+  background: #22c55e;
+  color: rgb(12, 232, 56);
+}
+
+.day-cell.late {
+  background: #facc15;
+  color: rgb(218, 230, 8);
+}
+
+.day-cell.half-day {
+  background: #fb923c;
+  color: rgb(231, 129, 11);
+}
+
+.day-cell.absent {
+  background: #ef4444;
+  color: rgb(250, 6, 6);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .day-cell {
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .attendance-row {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .day-name {
+    font-size: 10px;
+  }
+
+  .day-cell {
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .profile-avatar {
+    width: 75px;
+    height: 75px;
+  }
+}
